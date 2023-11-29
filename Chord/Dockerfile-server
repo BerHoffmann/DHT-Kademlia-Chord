@@ -1,0 +1,9 @@
+FROM golang:1.19-alpine
+
+WORKDIR '/app'
+
+COPY ./test.go ./utils.go  .
+
+RUN go build test.go utils.go
+
+CMD [ "./test" ]

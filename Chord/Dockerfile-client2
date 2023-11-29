@@ -1,0 +1,9 @@
+FROM golang:1.19-alpine
+
+WORKDIR '/app'
+
+COPY ./client.go .
+
+RUN go build client.go
+
+

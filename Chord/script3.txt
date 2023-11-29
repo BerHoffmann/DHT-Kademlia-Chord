@@ -1,0 +1,3 @@
+sleep 1
+join 182.18.0.2
+sleep 10

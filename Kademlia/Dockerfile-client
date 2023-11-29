@@ -1,0 +1,10 @@
+FROM golang:1.19-alpine
+
+WORKDIR '/app'
+
+COPY ./client.go ./utils.go .
+
+RUN go build client.go utils.go
+
+ENTRYPOINT ["./client"]
+

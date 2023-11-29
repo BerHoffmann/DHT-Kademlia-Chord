@@ -1,0 +1,10 @@
+sleep 4
+join 182.18.0.3
+sleep 1
+send file.txt mycontenthere
+sleep 1 
+search text.txt
+sleep 5
+search file.txt
+sleep 5
+search objeto.txt

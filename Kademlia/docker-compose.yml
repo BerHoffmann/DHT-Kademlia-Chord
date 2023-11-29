@@ -1,0 +1,151 @@
+version: '3.9'
+
+#server aqui apenas significa que foi o primeiro cara a entrar na arquitetura CHORD.
+
+services:
+  server:
+    container_name: c0
+    build:
+      context: .
+      dockerfile: "Dockerfile-server"
+    networks:
+      my-network:
+        ipv4_address: 182.19.1.2
+
+  client:
+    container_name: c1
+    build:
+      context: .
+      dockerfile: "Dockerfile-client"
+    command: ["2", "1"]
+    stdin_open: true 
+    tty: true 
+    networks:
+      my-network:
+        ipv4_address: 182.19.0.3
+        
+  client2:
+    container_name: c2
+    build:
+      context: .
+      dockerfile: "Dockerfile-client"
+    command: ["2", "2"]
+    stdin_open: true 
+    tty: true 
+    networks:
+      my-network:
+        ipv4_address: 182.19.0.4
+        
+  client3:
+    container_name: c3
+    build:
+      context: .
+      dockerfile: "Dockerfile-client"
+    command: ["2", "3"]
+    stdin_open: true 
+    tty: true 
+    networks:
+      my-network:
+        ipv4_address: 182.19.1.5
+        
+  client4:
+    container_name: c4
+    build:
+      context: .
+      dockerfile: "Dockerfile-client"
+    command: ["2", "3"]
+    stdin_open: true 
+    tty: true 
+    networks:
+      my-network:
+        ipv4_address: 182.19.1.7
+
+  client5:
+    container_name: c5
+    build:
+      context: .
+      dockerfile: "Dockerfile-client"
+    command: ["2", "4"]
+    stdin_open: true 
+    tty: true 
+    networks:
+      my-network:
+        ipv4_address: 182.19.1.8
+
+  client6:
+    container_name: c6
+    build:
+      context: .
+      dockerfile: "Dockerfile-client"
+    command: ["2", "5"]
+    stdin_open: true 
+    tty: true 
+    networks:
+      my-network:
+        ipv4_address: 182.19.1.9
+
+
+  client7:
+    container_name: c7
+    build:
+      context: .
+      dockerfile: "Dockerfile-client"
+    command: ["2", "4"]
+    stdin_open: true 
+    tty: true 
+    networks:
+      my-network:
+        ipv4_address: 182.19.1.10
+
+  client8:
+    container_name: c8
+    build:
+      context: .
+      dockerfile: "Dockerfile-client"
+    command: ["2", "5"]
+    stdin_open: true 
+    tty: true 
+    networks:
+      my-network:
+        ipv4_address: 182.19.2.9
+
+  client9:
+    container_name: c9
+    build:
+      context: .
+      dockerfile: "Dockerfile-client"
+    command: ["2", "6"]
+    stdin_open: true 
+    tty: true 
+    networks:
+      my-network:
+        ipv4_address: 182.19.2.13
+
+  client10:
+    container_name: c10
+    build:
+      context: .
+      dockerfile: "Dockerfile-client"
+    command: ["2", "7"]
+    stdin_open: true 
+    tty: true 
+    networks:
+      my-network:
+        ipv4_address: 182.19.2.11
+
+# criar cliente 4 com docker file igual a "Dockerfile-client2", que vai usar outro script
+# que é bem similar ao usado no "Dockerfile-client"
+
+networks:
+  my-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 182.19.0.0/16
+
+#view docker compose from lab 1 csc27!
+#build:
+#      context: .
+#      dockerfile: "Dockerfile.Process"
+#    command: ["2", "p11:10004", "p22:10003", "p33:10002"]
+#    stdin_open: true 

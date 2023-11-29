@@ -1,0 +1,6 @@
+sleep 3
+join 182.18.0.2
+sleep 5
+send text.txt content-text
+sleep 1 
+search text.txt
